@@ -1,0 +1,22 @@
+<!-- tablerow component represents a row in a table with 2 comboboxes
+   which are dependant in nature. example - Country-> State -->
+<template>
+  <td>{__row.record.Name}</td>
+  <td>
+    <lightning-combobox
+      value={__row.record.Country__c}
+      placeholder="Select Country"
+      options={__row.activeControlOptions}
+      onchange={handleControlChange}
+    ></lightning-combobox>
+  </td>
+  <td>
+    <lightning-combobox
+      value={__row.record.State__c}
+      placeholder="Select Country"
+      options={__row.dependOptions}
+      onchange={handleDependChange}
+    ></lightning-combobox>
+  </td>
+  <td></td>
+</template>
