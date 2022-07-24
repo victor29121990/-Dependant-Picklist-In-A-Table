@@ -1,0 +1,34 @@
+<!--
+Table component to build the html table which will store the actual data set
+This component invokes the child tableRow component to represent each row 
+in a table with dynamic picklists
+-->
+<template>
+  <template if:true={loaded}>
+    <table>
+      <thead>
+        <tr>
+          <th>Account Name</th>
+          <th>Country</th>
+          <th>State</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template for:each={accountList} for:item="row">
+          <c-table-row
+            key={row.Id}
+            row={row}
+            onrowvaluechanged={handleRowValueChanged}
+          ></c-table-row>
+        </template>
+      </tbody>
+    </table>
+
+    <lightning-button
+      label="Save"
+      title="Save"
+      onclick={handleSave}
+    ></lightning-button>
+  </template>
+</template>
